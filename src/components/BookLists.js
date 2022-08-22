@@ -7,7 +7,7 @@ class BookLists extends Component {
         return (
             <div className="my-12">
                 <h1 className="text-2xl border-b-2 text-start font-bold mx-2">{title}</h1>
-                <div className="flex">
+                <div className="flex flex-wrap">
                     {
                         list.map( (book, i)=> {
                             return <Card key={i} book={book} updateLists={updateLists}/>
