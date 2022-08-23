@@ -20,24 +20,25 @@ class App extends React.Component {
   }
   updateLists = (option, book) => {
    if(option === 1){
+    console.log(this.state.found.includes(book))
     this.filterBookList(this.state.found, "found" ,book)
     this.state.wantToRead.length > 0 && this.filterBookList(this.state.wantToRead, "wantToRead", book)
     this.state.read.length > 0 && this.filterBookList(this.state.read, "read", book)
-    this.setState({currentlyReading: [...this.state.currentlyReading, book]})
+    !this.state.currentlyReading.includes(book) && this.setState({currentlyReading: [...this.state.currentlyReading, book]})
    } 
    
    else if(option === 2){
     this.filterBookList(this.state.found, "found" ,book)
     this.state.currentlyReading.length > 0 && this.filterBookList(this.state.currentlyReading, "currentlyReading", book)
     this.state.read.length > 0 && this.filterBookList(this.state.read, "read", book)
-    this.setState({wantToRead: [...this.state.wantToRead, book]})
+    !this.state.wantToRead.includes(book) && this.setState({wantToRead: [...this.state.wantToRead, book]})
    } 
    
    else if(option === 3){
     this.filterBookList(this.state.found, "found" ,book)
     this.state.wantToRead.length > 0 && this.filterBookList(this.state.wantToRead, "wantToRead", book)
-    this.state.currentlyReading.length > 0 && this.filterBookList(this.state.currentlyReading, "read", book)
-    this.setState({read: [...this.state.read, book]})   }
+    this.state.currentlyReading.length > 0 && this.filterBookList(this.state.currentlyReading, "currentlyReading", book)
+    !this.state.read.includes(book) && this.setState({read: [...this.state.read, book]})   }
   }
 
   updateFoundArray = (arr) => {
