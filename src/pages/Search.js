@@ -15,12 +15,11 @@ class Search extends Component {
         this.props.updateFoundArray(arr)
     }
     render () {
-        const {found, updateLists, toggleSearch} = this.props
+        const {found, updateLists} = this.props
         return (
             <div className="z-10 absolute w-full h-screen bg-white">
                 <SearchBar 
                     updateSearchArray={this.updateSearchArray}  
-                    toggleSearch={toggleSearch} 
                 />
             <div className="flex flex-wrap my-28 justify-center">
                 {

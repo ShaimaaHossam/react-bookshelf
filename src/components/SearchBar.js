@@ -1,4 +1,3 @@
-import debounce from 'lodash.debounce';
 import React, { Component } from 'react'
 import BackButton from './BackButton';
 import {DebounceInput} from 'react-debounce-input';
@@ -20,10 +19,9 @@ class SearchBar extends Component {
         .catch(err => console.log(err))
     }
     render() {
-        const { toggleSearch} = this.props
         return (
             <form className="absolute px-6 top-0 w-full z-50 bg-white shadow-lg flex align-middle">
-                <BackButton toggleSearch={toggleSearch}/>
+                <BackButton />
                 <DebounceInput
                  onChange={this.getBooks} 
                  debounceTimeout={300}

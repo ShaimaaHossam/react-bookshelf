@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import ArrowButton from './ArrowButton'
 import Menu from './Menu'
 class Card extends Component {
@@ -21,9 +22,11 @@ class Card extends Component {
         const {showMenu, menuOption} = this.state
         return (
             <div className="m-4 text-start w-1/5 relative">
+                <Link to={`${book.key}`}>
                 <img className="w-44 h-60 shadow-lg" src={"https://covers.openlibrary.org/b/id/"+book.cover_i+"-M.jpg"} />
                 <p className="mx-2 mt-2">{book.title}</p>
                 <p className="mx-2 text-sm text-gray-500">{book.author_name}</p>
+                </Link>
                 <ArrowButton toggleMenu={this.toggleMenu}/>
                 <Menu 
                     showMenu={showMenu} 
@@ -31,6 +34,7 @@ class Card extends Component {
                     menuOption={menuOption} 
                     updateMenuOption={this.updateMenuOption}
                 />
+                
             </div>
         )
     }
